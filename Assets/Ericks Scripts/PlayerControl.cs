@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,10 +12,17 @@ public class PlayerControl : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
+    bool dashing = false;
+    float gravity;
+    [SerializeField]
+    float buttonCooler = .5F;
+
+    int buttonCount = 0;
 
     //Serializable fields
     [Header("Serializable")]
     [SerializeField] private float jumpForce = 400f;                          // Amount of force added when the player jumps.
+    [SerializeField] private float dashForce = 500f;                          // Amount of force added when the player dashes.
     [Range(0, 1)] [SerializeField] private float crouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [Range(0, .3f)] [SerializeField] private float movementSmoothing = .05f;  // How much to smooth out the movement
     [SerializeField] private bool airControl = false;                         // Whether or not a player can steer while jumping;
@@ -22,6 +30,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Transform groundPosition;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform ceilingPosition;                          // A position marking where to check for ceilings
     [SerializeField] private Collider2D crouchDisabler;                        // A collider that will be disabled when crouching
+    int facingDir;
 
     //State variables
     const float groundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -45,6 +54,7 @@ public class PlayerControl : MonoBehaviour
     private void Awake()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
+        gravity = rb.gravityScale;
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
@@ -56,6 +66,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckAirDash();
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
@@ -65,7 +76,7 @@ public class PlayerControl : MonoBehaviour
             animator.SetBool("IsRunning", true);
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
+        
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
@@ -81,11 +92,13 @@ public class PlayerControl : MonoBehaviour
             crouch = false;
         }
 
+
     }
 
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
+        dashing = false;
     }
 
     public void OnCrouching(bool isCrouching)
@@ -123,6 +136,7 @@ public class PlayerControl : MonoBehaviour
 
     public void Move(float move, bool crouch, bool jump)
     {
+
         // If crouching, check to see if the character can stand up
         if (!crouch)
         {
@@ -136,7 +150,6 @@ public class PlayerControl : MonoBehaviour
         //only control the player if grounded or airControl is turned on
         if (isGrounded || airControl)
         {
-
             // If crouching
             if (crouch)
             {
@@ -164,10 +177,12 @@ public class PlayerControl : MonoBehaviour
                     wasCrouching = false;
                     OnCrouchEvent.Invoke(false);
                 }
+
+
             }
 
             // Move the character by finding the target velocity
-            Vector3 targetVelocity = new Vector2(move * 10f, rb.velocity.y);
+            Vector2 targetVelocity = new Vector2(move * 10f, rb.velocity.y);
             // And then smoothing it out and applying it to the character
             rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
 
@@ -185,8 +200,42 @@ public class PlayerControl : MonoBehaviour
             // Add a vertical force to the player.
             isGrounded = false;
             rb.AddForce(new Vector2(0f, jumpForce));
+            animator.SetBool("IsJumping", true);
         }
     }
+
+    private void CheckAirDash()
+    {
+        if (isFacingRight)
+            facingDir = 1;
+        else
+            facingDir = -1;
+        if (Input.GetKeyDown(KeyCode.E) && dashing == false)
+        {
+            if (buttonCooler > 0 && buttonCount == 1)
+            {
+                //has double tapped
+                //rb.gravityScale = 1;
+                dashing = true;
+                rb.AddForce((new Vector2(facingDir * Time.deltaTime, 0f) * dashForce), ForceMode2D.Impulse);
+            }
+            else
+            {
+                buttonCooler = .5F;
+                buttonCount += 1;
+            }
+        }
+
+        if (buttonCooler > 0)
+        {
+            buttonCooler -= 1 * Time.deltaTime;
+        }
+        else
+        {
+            buttonCount = 0;
+        }
+    }
+
     private void Flip()
     {
         // Switch the way the player is labelled as facing.
