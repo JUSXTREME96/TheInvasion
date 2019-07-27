@@ -14,6 +14,11 @@ public class PlayerControl : MonoBehaviour
     bool crouch = false;
     bool dashing = false;
     float gravity;
+
+    public float dashSpeed;
+    private float dashTime;
+    public float startDashTime;
+    private int direction;
     [SerializeField]
     float buttonCooler = .5F;
 
@@ -217,7 +222,36 @@ public class PlayerControl : MonoBehaviour
             facingDir = 1;
         else
             facingDir = -1;
-        if (Input.GetKeyDown(KeyCode.E) && dashing == false)
+
+        if(Input.GetKeyDown(KeyCode.E) && direction ==0)
+        {
+            direction = facingDir;
+        }
+
+        if (direction != 0)
+        {
+            if (dashTime <= 0)
+            {
+                direction = 0;
+                dashTime = startDashTime;
+                rb.velocity = Vector2.zero;
+            }
+            else
+            {
+                dashTime -= Time.deltaTime;
+
+                if (direction == 1)
+                {
+                    rb.velocity = Vector2.right * dashSpeed;
+                }
+                else if (direction == -1)
+                {
+                    rb.velocity = Vector2.left * dashSpeed;
+                }
+            }
+        }
+
+        /*if (Input.GetKeyDown(KeyCode.E) && dashing == false)
         {
             if (buttonCooler > 0 && buttonCount == 1)
             {
@@ -240,7 +274,7 @@ public class PlayerControl : MonoBehaviour
         else
         {
             buttonCount = 0;
-        }
+        }*/
     }
 
     private void Flip()
