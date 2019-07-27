@@ -92,6 +92,13 @@ public class PlayerControl : MonoBehaviour
             crouch = false;
         }
 
+        if (Input.GetButton("Vertical"))
+        {
+            if(Input.GetAxis("Vertical") > 0)
+                animator.SetBool("IsAimingUp", true);
+        }
+        else
+            animator.SetBool("IsAimingUp", false);
 
     }
 
