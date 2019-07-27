@@ -181,7 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 3928780402568384920}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 5514949152257006556, guid: c3db1434506b4f441a3733c57a3c1326,
+    type: 3}
 --- !u!114 &3928780401738829872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ MonoBehaviour:
   dashForce: 1000
   crouchSpeed: 0.36
   movementSmoothing: 0.05
-  airControl: 0
+  airControl: 1
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 311
@@ -357,7 +358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3928780402568384923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43, y: 0.073, z: 0}
+  m_LocalPosition: {x: 0.48, y: 0.073, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3928780401738829875}

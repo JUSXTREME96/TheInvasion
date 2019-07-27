@@ -337,7 +337,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -361,7 +361,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.2466664, y: 6.5199995, z: -10}
+  m_LocalPosition: {x: -4.2253327, y: 4.1280003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1378191677}
@@ -531,16 +531,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1608438889}
-    - target: {fileID: 2111495434067876211, guid: 01e1fcc62436e40498d842113f96eabf,
-        type: 3}
-      propertyPath: m_LookaheadTime
-      value: 0.148
-      objectReference: {fileID: 0}
-    - target: {fileID: 2111495434067876211, guid: 01e1fcc62436e40498d842113f96eabf,
-        type: 3}
-      propertyPath: m_ScreenY
-      value: 0.596
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01e1fcc62436e40498d842113f96eabf, type: 3}
 --- !u!1001 &3928780402607916122
@@ -609,27 +599,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5316344497957063687, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 5514949152257006556, guid: c3db1434506b4f441a3733c57a3c1326,
-        type: 3}
-    - target: {fileID: 3928780401738829872, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: airControl
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3928780402568384920, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 3928780402568384920, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.073
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deaeaae748cc2694da739710782f4720, type: 3}
