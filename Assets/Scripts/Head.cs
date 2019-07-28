@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Soldier : Enemy
+public class Head : Enemy
 {
     public Transform frontFire;
 
@@ -31,20 +31,25 @@ public class Soldier : Enemy
 
         myTrans = this.transform;
         myBody = this.GetComponent<Rigidbody2D>();
-        mySprite = this.GetComponent<SpriteRenderer>();
+        mySprite = this.GetComponentInChildren<SpriteRenderer>();
         myWidth = mySprite.bounds.extents.x;
         myHeight = mySprite.bounds.extents.y;
     }
 
     void FixedUpdate()
     {
-        //if(Vector2.Distance(target.transform.position, transform.position) < minDist)
-        FacePlayer();
+        if (Vector2.Distance(target.transform.position, transform.position) < minDist)
+        {
+            FacePlayer();
 
-        randomFire = UnityEngine.Random.Range(0, 100);
+            randomFire = UnityEngine.Random.Range(0, 100);
 
-        if (randomFire < shootFrequency)
-            Shoot();
+            if (randomFire < shootFrequency)
+                Shoot();
+        }
+        else
+            myBody.velocity = Vector2.zero;
+
         //RaycastHit2D hitInfo = Physics2D.Raycast(frontFire.position, -frontFire.right, attackRange);
 
         //if (hitInfo)
@@ -96,14 +101,20 @@ public class Soldier : Enemy
 
         if (transform.position.x > target.transform.position.x)
         {
-            myBody.velocity = new Vector2(-1 * speed * Time.deltaTime, myBody.velocity.y);
+            if(transform.position.y > target.transform.position.x)
+                myBody.velocity = new Vector2(-1 * speed * Time.deltaTime, Time.deltaTime * (speed / 2));
+            else
+                myBody.velocity = new Vector2(-1 * speed * Time.deltaTime, -Time.deltaTime * (speed / 2));
 
             if (isFacingRight) // ... flip the player.
                 Flip();
         }
         else
         {
-            myBody.velocity = new Vector2(speed * Time.deltaTime, myBody.velocity.y);
+            if (transform.position.y > target.transform.position.x)
+                myBody.velocity = new Vector2(1 * speed * Time.deltaTime, Time.deltaTime * (speed / 2));
+            else
+                myBody.velocity = new Vector2(1 * speed * Time.deltaTime, -Time.deltaTime * (speed / 2));
 
             if (!isFacingRight) // ... flip the player.
                 Flip();
