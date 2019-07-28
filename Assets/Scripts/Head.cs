@@ -101,20 +101,20 @@ public class Head : Enemy
 
         if (transform.position.x > target.transform.position.x)
         {
-            if(transform.position.y > target.transform.position.x)
-                myBody.velocity = new Vector2(-1 * speed * Time.deltaTime, Time.deltaTime * (speed / 2));
-            else
+            if(transform.position.y > target.transform.position.y)
                 myBody.velocity = new Vector2(-1 * speed * Time.deltaTime, -Time.deltaTime * (speed / 2));
+            else
+                myBody.velocity = new Vector2(-1 * speed * Time.deltaTime, Time.deltaTime * (speed / 2));
 
             if (isFacingRight) // ... flip the player.
                 Flip();
         }
         else
         {
-            if (transform.position.y > target.transform.position.x)
-                myBody.velocity = new Vector2(1 * speed * Time.deltaTime, Time.deltaTime * (speed / 2));
-            else
+            if (transform.position.y > target.transform.position.y)
                 myBody.velocity = new Vector2(1 * speed * Time.deltaTime, -Time.deltaTime * (speed / 2));
+            else
+                myBody.velocity = new Vector2(1 * speed * Time.deltaTime, Time.deltaTime * (speed / 2));
 
             if (!isFacingRight) // ... flip the player.
                 Flip();
