@@ -57,7 +57,15 @@ public class Player : MonoBehaviour
             isCheck3 = true;
         }
 
-        if (other.name == "HealthPickUp")
+        if (other.name == "1HP")
+        {
+            currentHealth++;
+            if (currentHealth > maximumHealth)
+                currentHealth = maximumHealth;
+            Destroy(other.gameObject);
+        }
+
+        if(other.name == "Full_Health")
         {
             currentHealth = maximumHealth;
             Destroy(other.gameObject);

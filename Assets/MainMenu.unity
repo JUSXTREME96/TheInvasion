@@ -1193,9 +1193,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Created by:
 
-    Edward Tavarez - Level Design, Justice Garcia - Graphics & Sound
+    Edward Tavarez - Level Design, Erick Evangeliste - Programming
 
-    Zach "ZDM" Mauldin - Design & Programming'
+    Justice Garcia - Graphics & Sound, Zach "ZDM" Mauldin - Design & Programming'
 --- !u!222 &1518330476
 CanvasRenderer:
   m_ObjectHideFlags: 0
