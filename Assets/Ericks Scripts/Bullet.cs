@@ -49,8 +49,14 @@ public class Bullet : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        if (hitInfo.tag == "Environment")
+        //if (hitInfo.tag == "Environment")
+        //{
+        if (hitInfo.tag != "Enemy Projectile" || hitInfo.tag != "Player Projectile")
+        {
+            Debug.Log("Envir Hit!");
             Destroy(gameObject);
+        }
+        //}
     }
 	
 }

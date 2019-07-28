@@ -14503,7 +14503,7 @@ PrefabInstance:
     - target: {fileID: 6694709775001186089, guid: 093efe27c09adb44aaacd209d1531e6f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.606102
+      value: -12.616667
       objectReference: {fileID: 0}
     - target: {fileID: 6694709775001186089, guid: 093efe27c09adb44aaacd209d1531e6f,
         type: 3}
@@ -15832,6 +15832,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3928780401738829872, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: jumpForce
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928780401738829872, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: runSpeed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928780401738829879, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0015053749
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928780401738829879, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.38989353
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928780402568384920, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.053
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928780402568384920, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.572
+      objectReference: {fileID: 0}
     - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
         type: 3}
       propertyPath: checkpoints.Array.size
@@ -15867,16 +15897,6 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[2]
       value: 
       objectReference: {fileID: 176478061}
-    - target: {fileID: 3928780401738829872, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: jumpForce
-      value: 850
-      objectReference: {fileID: 0}
-    - target: {fileID: 3928780401738829872, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: runSpeed
-      value: 60
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deaeaae748cc2694da739710782f4720, type: 3}
 --- !u!1001 &1875987238

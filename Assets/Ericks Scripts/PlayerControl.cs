@@ -172,11 +172,11 @@ public class PlayerControl : MonoBehaviour
                 }
 
                 // Reduce the speed by the crouchSpeed multiplier
-                move *= crouchSpeed;
+                //move *= crouchSpeed;
 
                 // Disable one of the colliders when crouching
-                if (crouchDisabler != null)
-                    crouchDisabler.enabled = false;
+                //if (crouchDisabler != null)
+                    //crouchDisabler.enabled = false;
             }
             else
             {
