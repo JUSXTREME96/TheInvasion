@@ -5941,7 +5941,7 @@ PrefabInstance:
     - target: {fileID: 6694709775001186089, guid: 093efe27c09adb44aaacd209d1531e6f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.766525
+      value: -12.606102
       objectReference: {fileID: 0}
     - target: {fileID: 6694709775001186089, guid: 093efe27c09adb44aaacd209d1531e6f,
         type: 3}
@@ -6915,41 +6915,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: checkpoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: checkpoint1
-      value: 
-      objectReference: {fileID: 1683162996}
-    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: checkpoint2
-      value: 
-      objectReference: {fileID: 454063290}
-    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: checkpoint3
-      value: 
-      objectReference: {fileID: 176478061}
-    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: checkpoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1683162996}
-    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: checkpoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 454063290}
-    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
-        type: 3}
-      propertyPath: checkpoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 176478061}
     - target: {fileID: 3928780401738829874, guid: deaeaae748cc2694da739710782f4720,
         type: 3}
       propertyPath: m_Name
@@ -7010,6 +6975,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: checkpoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: checkpoint1
+      value: 
+      objectReference: {fileID: 1683162996}
+    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: checkpoint2
+      value: 
+      objectReference: {fileID: 454063290}
+    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: checkpoint3
+      value: 
+      objectReference: {fileID: 176478061}
+    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1683162996}
+    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: checkpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 454063290}
+    - target: {fileID: -1046427018780054823, guid: deaeaae748cc2694da739710782f4720,
+        type: 3}
+      propertyPath: checkpoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 176478061}
     - target: {fileID: 3928780401738829872, guid: deaeaae748cc2694da739710782f4720,
         type: 3}
       propertyPath: jumpForce
