@@ -189,7 +189,7 @@ MonoBehaviour:
     m_Bits: 0
   speed: 100
   maxDist: 5
-  minDist: 5
+  minDist: 50
   firepoint: {fileID: 490997098478649851}
   shootFrequency: 2
 --- !u!50 &946665989

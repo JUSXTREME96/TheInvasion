@@ -38,13 +38,18 @@ public class Soldier : Enemy
 
     void FixedUpdate()
     {
-        //if(Vector2.Distance(target.transform.position, transform.position) < minDist)
-        FacePlayer();
+        if (Vector2.Distance(target.transform.position, transform.position) < minDist)
+        {
+            FacePlayer();
 
-        randomFire = UnityEngine.Random.Range(0, 100);
+            randomFire = UnityEngine.Random.Range(0, 100);
 
-        if (randomFire < shootFrequency)
-            Shoot();
+            if (randomFire < shootFrequency)
+                Shoot();
+        }
+        else
+            myBody.velocity = Vector2.zero;
+
         //RaycastHit2D hitInfo = Physics2D.Raycast(frontFire.position, -frontFire.right, attackRange);
 
         //if (hitInfo)
