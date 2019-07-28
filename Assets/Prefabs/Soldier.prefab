@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5328528876387784146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.85, y: 0.5, z: 0}
+  m_LocalPosition: {x: -0.52, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5328528877025337848}
@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 50
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -184,10 +184,10 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 823
-  speed: 75
+  speed: 50
   maxDist: 5
   minDist: 10
-  firepoint: {fileID: 0}
+  firepoint: {fileID: 5328528876387784146}
   shootFrequency: 3
 --- !u!95 &360377340
 Animator:
