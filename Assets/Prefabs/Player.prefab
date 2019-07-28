@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 3928780401738829875}
   - component: {fileID: 3928780401738829873}
   - component: {fileID: 5316344497957063687}
+  - component: {fileID: -1046427018780054823}
   - component: {fileID: 3928780401738829872}
   - component: {fileID: 3928780401738829876}
   - component: {fileID: 3928780401738829879}
@@ -183,6 +184,23 @@ MonoBehaviour:
   firePoint: {fileID: 3928780402568384920}
   bulletPrefab: {fileID: 5514949152257006556, guid: c3db1434506b4f441a3733c57a3c1326,
     type: 3}
+--- !u!114 &-1046427018780054823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928780401738829874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2fc3a45c7cb2348817a0ab60d6867d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoint1: {fileID: 0}
+  checkpoint2: {fileID: 0}
+  checkpoint3: {fileID: 0}
+  currentHealth: 5
+  maximumHealth: 5
 --- !u!114 &3928780401738829872
 MonoBehaviour:
   m_ObjectHideFlags: 0

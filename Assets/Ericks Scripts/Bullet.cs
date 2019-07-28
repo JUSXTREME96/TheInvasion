@@ -35,13 +35,13 @@ public class Bullet : MonoBehaviour {
 
         if (tag == "Enemy Projectile" && hitInfo.tag == "Player")
         {
-            PlayerControl PC = hitInfo.GetComponent<PlayerControl>();
+            Player Player = hitInfo.GetComponent<Player>();
 
             Debug.Log("Player Hit!");
 
-            if (PC != null)
+            if (Player.currentHealth != 0)
             {
-                //PC.TakeDamage(damage);
+                Player.currentHealth--;
             }
 
             //Instantiate(impactEffect, transform.position, transform.rotation);
