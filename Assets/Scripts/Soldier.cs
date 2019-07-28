@@ -11,51 +11,57 @@ public class Soldier : Enemy
 
     public GameObject projectile;
 
-    private Transform target;
+    private PlayerControl target;
 
     public LayerMask enemyMask;
     public float speed = 1;
     Rigidbody2D myBody;
     Transform myTrans;
     float myWidth, myHeight;
+    private bool isFacingRight;
+    SpriteRenderer mySprite;
+
+    [SerializeField] float maxDist = 5f;
+    [SerializeField] float minDist = 10f;
 
     void Start()
     {
-        target = GameObject.Find("Player").transform;
+        target = FindObjectOfType<PlayerControl>();
 
         myTrans = this.transform;
         myBody = this.GetComponent<Rigidbody2D>();
-        SpriteRenderer mySprite = this.GetComponent<SpriteRenderer>();
+        mySprite = this.GetComponent<SpriteRenderer>();
         myWidth = mySprite.bounds.extents.x;
         myHeight = mySprite.bounds.extents.y;
     }
 
     void FixedUpdate()
     {
+        FacePlayer();
 
-        RaycastHit2D hitInfo = Physics2D.Raycast(frontFire.position, -frontFire.right, attackRange);
+        //RaycastHit2D hitInfo = Physics2D.Raycast(frontFire.position, -frontFire.right, attackRange);
 
-        if (hitInfo)
-        {
-            if (hitInfo.transform.name == "Player")
-                if (nextTime > attackTime)
-                {
-                    Shoot();
-                }
-            nextTime += Time.deltaTime;
-        }
-        else
-        {
+        //if (hitInfo)
+        //{
+        //    if (hitInfo.transform.name == "Player")
+        //        if (nextTime > attackTime)
+        //        {
+        //            Shoot();
+        //        }
+        //    nextTime += Time.deltaTime;
+        //}
+        //else
+        //{
 
-            Patrol();
-        }
+        //    Patrol();
+        //}
     }
 
     public void Shoot()
     {
         nextTime = 0;
         Debug.Log("Bang");
-        GameObject fireBullet = Instantiate(projectile, transform.position + (transform.up * 0.85f), transform.rotation);
+        Instantiate(projectile, transform.position + (transform.up * 0.85f), transform.rotation);
     }
 
     public void Patrol()
@@ -81,7 +87,17 @@ public class Soldier : Enemy
 
     public void FacePlayer()
     {
+        if (transform.position.x > target.transform.position.x)
+        {
+            myBody.velocity = new Vector2(-1 * speed * Time.deltaTime, myBody.velocity.y);
+            mySprite.flipX = false;
+        }
+        else
+        {
+            myBody.velocity = new Vector2(speed * Time.deltaTime, myBody.velocity.y);
 
+            mySprite.flipX = true;
+        }
     }
 
 }
