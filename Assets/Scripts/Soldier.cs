@@ -10,7 +10,7 @@ public class Soldier : Enemy
     private float nextTime;
 
     public GameObject projectile;
-
+    [SerializeField] int randomFire = 3;
     private PlayerControl target;
 
     public LayerMask enemyMask;
@@ -23,7 +23,8 @@ public class Soldier : Enemy
 
     [SerializeField] float maxDist = 5f;
     [SerializeField] float minDist = 10f;
-
+    [SerializeField] GameObject firepoint;
+    [SerializeField] float shootFrequency = 5;
     void Start()
     {
         target = FindObjectOfType<PlayerControl>();
@@ -39,6 +40,10 @@ public class Soldier : Enemy
     {
         FacePlayer();
 
+        randomFire = UnityEngine.Random.Range(0, 100);
+
+        if (randomFire < shootFrequency)
+            Shoot();
         //RaycastHit2D hitInfo = Physics2D.Raycast(frontFire.position, -frontFire.right, attackRange);
 
         //if (hitInfo)
@@ -61,7 +66,7 @@ public class Soldier : Enemy
     {
         nextTime = 0;
         Debug.Log("Bang");
-        Instantiate(projectile, transform.position + (transform.up * 0.85f), transform.rotation);
+        Instantiate(projectile, firepoint.transform.position, transform.rotation);
     }
 
     public void Patrol()
@@ -87,17 +92,28 @@ public class Soldier : Enemy
 
     public void FacePlayer()
     {
+
         if (transform.position.x > target.transform.position.x)
         {
             myBody.velocity = new Vector2(-1 * speed * Time.deltaTime, myBody.velocity.y);
-            mySprite.flipX = false;
+
+            if (isFacingRight) // ... flip the player.
+                Flip();
         }
         else
         {
             myBody.velocity = new Vector2(speed * Time.deltaTime, myBody.velocity.y);
 
-            mySprite.flipX = true;
+            if (!isFacingRight) // ... flip the player.
+                Flip();
         }
     }
 
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        isFacingRight = !isFacingRight;
+
+        transform.Rotate(0f, 180f, 0f);
+    }
 }

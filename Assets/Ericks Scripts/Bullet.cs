@@ -8,23 +8,44 @@ public class Bullet : MonoBehaviour {
 	public int damage = 40;
 	public Rigidbody2D rb;
 	public GameObject impactEffect;
-
+    public bool startLorR = true;
 	// Use this for initialization
 	void Start () {
-		rb.velocity = transform.right * speed;
-	}
+        if(startLorR)
+		    rb.velocity = transform.right * speed;
+        else
+            rb.velocity = -transform.right * speed;
+    }
 
-	void OnTriggerEnter2D (Collider2D hitInfo)
-	{
-		Enemy enemy = hitInfo.GetComponent<Enemy>();
-		if (enemy != null)
-		{
-			enemy.TakeDamage(damage);
-		}
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        if (tag == "Player Projectile" && hitInfo.tag == "Enemy")
+         {
+            Enemy enemy = hitInfo.GetComponent<Enemy>();
 
-		//Instantiate(impactEffect, transform.position, transform.rotation);
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
 
-		Destroy(gameObject);
-	}
+            //Instantiate(impactEffect, transform.position, transform.rotation);
+
+            Destroy(gameObject);
+        }
+
+        if (tag == "Enemy Projectile" && hitInfo.tag == "Player")
+        {
+            PlayerControl PC = hitInfo.GetComponent<PlayerControl>();
+
+            if (PC != null)
+            {
+                //PC.TakeDamage(damage);
+            }
+
+            //Instantiate(impactEffect, transform.position, transform.rotation);
+
+            Destroy(gameObject);
+        }
+    }
 	
 }

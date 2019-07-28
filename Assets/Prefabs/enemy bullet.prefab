@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e043f7766604c7e46adf74f542bca7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 5
   damage: 40
   rb: {fileID: 2216558315884228461}
   impactEffect: {fileID: 0}
+  startLorR: 0
 --- !u!212 &3931514769232482952
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -117,7 +118,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &4673035662842659340
 CircleCollider2D:
