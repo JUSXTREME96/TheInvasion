@@ -98,6 +98,26 @@ PrefabInstance:
       propertyPath: speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5328528877025337852, guid: 590c9abbb461d1647910a2170bc50095,
+        type: 3}
+      propertyPath: randomFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328528877025337852, guid: 590c9abbb461d1647910a2170bc50095,
+        type: 3}
+      propertyPath: shootFrequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328528877025337852, guid: 590c9abbb461d1647910a2170bc50095,
+        type: 3}
+      propertyPath: attackRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328528877025337852, guid: 590c9abbb461d1647910a2170bc50095,
+        type: 3}
+      propertyPath: attackTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5328528876387784147, guid: 590c9abbb461d1647910a2170bc50095,
         type: 3}
       propertyPath: m_LocalPosition.y

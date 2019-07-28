@@ -37,6 +37,8 @@ public class Bullet : MonoBehaviour {
         {
             PlayerControl PC = hitInfo.GetComponent<PlayerControl>();
 
+            Debug.Log("Player Hit!");
+
             if (PC != null)
             {
                 //PC.TakeDamage(damage);
@@ -46,6 +48,7 @@ public class Bullet : MonoBehaviour {
 
             Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 	
 }

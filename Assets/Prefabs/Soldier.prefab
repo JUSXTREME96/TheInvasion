@@ -176,16 +176,19 @@ MonoBehaviour:
   health: 100
   deathEffect: {fileID: 0}
   frontFire: {fileID: 5328528876387784147}
-  attackTime: 3
-  attackRange: 8
-  projectile: {fileID: 5514949152257006556, guid: c3db1434506b4f441a3733c57a3c1326,
+  attackTime: 2
+  attackRange: 3
+  projectile: {fileID: 5514949152257006556, guid: 5db0648340fe83c4da2bed516a77022e,
     type: 3}
+  randomFire: 3
   enemyMask:
     serializedVersion: 2
     m_Bits: 823
   speed: 75
   maxDist: 5
   minDist: 10
+  firepoint: {fileID: 0}
+  shootFrequency: 3
 --- !u!95 &360377340
 Animator:
   serializedVersion: 3
