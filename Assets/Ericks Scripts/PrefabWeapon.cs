@@ -10,8 +10,13 @@ public class PrefabWeapon : MonoBehaviour {
     public GameObject specialPrefab;
     public int maxShot, currentShot;
     public Text ammo;
-    // Update is called once per frame
 
+    AudioSource audio;
+    // Update is called once per frame
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
     void Update() {
         if (Input.GetButtonDown("Fire1"))
         {
@@ -34,6 +39,7 @@ public class PrefabWeapon : MonoBehaviour {
 
     void Shoot ()
 	{
+        audio.Play();
         if(currentShot > 0)
         {
             Instantiate(specialPrefab, firePoint.position, firePoint.rotation);
