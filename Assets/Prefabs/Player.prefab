@@ -1526,7 +1526,7 @@ MonoBehaviour:
     type: 3}
   specialPrefab: {fileID: 8721924239859971968, guid: 12186147a8a8e3046b3b833773f29abe,
     type: 3}
-  maxShot: 10
+  maxShot: 50
   currentShot: 0
   ammo: {fileID: 919499700}
 --- !u!114 &-1046427018780054823
