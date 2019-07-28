@@ -48,6 +48,9 @@ public class Bullet : MonoBehaviour {
 
             Destroy(gameObject);
         }
+
+        if (hitInfo.tag == "Environment")
+            Destroy(gameObject);
     }
 	
 }

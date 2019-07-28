@@ -8,6 +8,7 @@ TagManager:
   - Player Projectile
   - Enemy Projectile
   - Soldier Projectile
+  - Enivronment
   layers:
   - Default
   - TransparentFX
