@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
     private bool isCheck3 = false;
 
     public int currentHealth, maximumHealth;
+
+    public Text counter;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,8 @@ public class Player : MonoBehaviour
             CheckpointCheck();
             currentHealth = maximumHealth;
         }
+
+        counter.text = currentHealth.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,6 +55,12 @@ public class Player : MonoBehaviour
             isCheck1 = false;
             isCheck2 = false;
             isCheck3 = true;
+        }
+
+        if (other.name == "HealthPickUp")
+        {
+            currentHealth = maximumHealth;
+            Destroy(other.gameObject);
         }
     }
 
