@@ -45,7 +45,6 @@ public class PlayerControl : MonoBehaviour
     private bool isFacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 velocity = Vector3.zero;
     private bool wasCrouching = false;
-    [SerializeField]AudioClip gunshot;
     [Header("Events")]
     [Space]
     public UnityEvent OnLandEvent;
@@ -223,7 +222,7 @@ public class PlayerControl : MonoBehaviour
         else
             facingDir = -1;
 
-        if(Input.GetKeyDown(KeyCode.E) && direction ==0)
+        if(Input.GetKeyDown(KeyCode.Space) && direction ==0)
         {
             direction = facingDir;
         }
