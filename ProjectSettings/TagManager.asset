@@ -9,6 +9,8 @@ TagManager:
   - Enemy Projectile
   - Soldier Projectile
   - Enivronment
+  - Health
+  - FullHealth
   layers:
   - Default
   - TransparentFX

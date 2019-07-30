@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3049939579552508319}
   m_Layer: 0
   m_Name: Full_Health
-  m_TagString: Untagged
+  m_TagString: FullHealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

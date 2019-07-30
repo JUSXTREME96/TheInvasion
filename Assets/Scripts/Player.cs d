@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = 5;
+        currentHealth = maximumHealth;
     }
 
     // Update is called once per frame
@@ -59,17 +59,15 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.CompareTag ("Health")) 
         {
-            //currentHealth++;
-
-		 currentHealth = currentHealth + 1;
-            if (currentHealth > 5)
-                currentHealth = 5;
+            currentHealth++;
+            if (currentHealth > maximumHealth)
+                currentHealth = maximumHealth;
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag ("FullHealth")) 
         {
-            currentHealth = 5;
+            currentHealth = maximumHealth;
             Destroy(other.gameObject);
         }
     }
